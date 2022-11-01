@@ -15,11 +15,6 @@ const resolvers = {
 
             throw new AuthenticationError('Not Logged In!');
         },
-        user: async (parent, { username }) => {
-            return User.findOne()
-                .select('-__v -password')
-                .populate('books');
-        }
     },
     Mutation: {
         addUser: async (parent, args) => {
